@@ -5,6 +5,10 @@
 
 USERNAME=gto76
 
+# This repos name:
+
+REPONAME=church
+
 # Names of images located in 'site/images' in desired
 # order (one per line):
 

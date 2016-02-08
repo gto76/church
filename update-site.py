@@ -15,8 +15,9 @@ def main():
   with open("photosrc") as f:
     lines = f.readlines()
   username = [line.replace("USERNAME=", "").strip() for line in lines if "USERNAME=" in line][0]
-  readmeLink = "https://github.com/" + username + "/photos"
-  rootAddress = "http://" + username + ".github.io/photos/site/"
+  reponame = [line.replace("REPONAME=", "").strip() for line in lines if "REPONAME=" in line][0]
+  readmeLink = "https://github.com/" + username + "/" + reponame
+  rootAddress = "http://" + username + ".github.io/" + reponame + "/site/"
   chain = [line.strip() for line in lines if not line.strip().startswith('#') and line.strip() and "USERNAME=" not in line]
   generateReadme(chain, username)
   generatePages(chain, readmeLink, rootAddress)
@@ -29,7 +30,7 @@ def generateReadme(chain, username):
   print(readme, file=f)
 
 def getReadmeLine(img, username):
-  return "[<img src=\"site/images/"+img+"\">](http://"+username+".github.io/photos/site/"+changeExtensionToHtml(img)+")\n\n"
+  return "[<img src=\"site/images/"+img+"\">](http://"+username+".github.io/" + reponame + "/site/"+changeExtensionToHtml(img)+")\n\n"
 
 def generatePages(chain, readmeLink, rootAddress):
   for i in xrange(0, len(chain)):
