@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .fit { 
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      img {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="centered fit" src="images/screenshot347.png" usemap="#mymap">    
+    <map name="mymap">
+      <area shape="rect" coords="0,0,800,1200" href="http://gto76.github.io/photos/site/screenshot90.html">
+      <area shape="rect" coords="800,0,1600,1200" href="http://gto76.github.io/photos/site/screenshot119.html">
+    </map>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="lib/jquery.rwdImageMaps.min.js"></script>
+    <script type="text/javascript" language="JavaScript">
+      function set_body_height() { // set body height = window height
+        $('body').height($(window).height());
+      }
+      $(document).ready(function(e) {
+        $(window).bind('resize', set_body_height);
+        set_body_height();
+        $('img[usemap]').rwdImageMaps();
+      });
+      function leftArrowPressed() {
+         window.location.href = "http://gto76.github.io/photos/site/screenshot90.html";
+      }
+      function rightArrowPressed() {
+         window.location.href = "http://gto76.github.io/photos/site/screenshot119.html";
+      }
+      function escapeOrUpArrowPressed() {
+        window.location.href = "https://github.com/gto76/photos";
+      }
+      document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        switch (evt.keyCode) {
+          case 37:
+            leftArrowPressed();
+            break;
+          case 39:
+            rightArrowPressed();
+            break;
+          case 27: // esc
+            escapeOrUpArrowPressed();
+            break;
+          case 38: // upArrow
+            escapeOrUpArrowPressed();
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+# Photos configuration file. README.md and links to pages with
+# images will be created according to data specified here.
+
+# Your Github username:
+
+USERNAME=gto76
+
+# Names of images located in 'site/images' in desired
+# order (one per line):
+
+screenshot686.png
+screenshot495.png
+screenshot488.png
+screenshot90.png
+screenshot347.png
+screenshot119.png
+screenshot438.png
+screenshot613.png
+screenshot803.png
+screenshot785.png
+screenshot157.png
+screenshot246.png
+screenshot556.png
