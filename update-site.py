@@ -18,18 +18,18 @@ def main():
   reponame = [line.replace("REPONAME=", "").strip() for line in lines if "REPONAME=" in line][0]
   readmeLink = "https://github.com/" + username + "/" + reponame
   rootAddress = "http://" + username + ".github.io/" + reponame + "/site/"
-  chain = [line.strip() for line in lines if not line.strip().startswith('#') and line.strip() and "USERNAME=" not in line]
-  generateReadme(chain, username)
+  chain = [line.strip() for line in lines if not line.strip().startswith('#') and line.strip() and "USERNAME=" not in line and "REPONAME=" not in line]
+  generateReadme(chain, username, reponame)
   generatePages(chain, readmeLink, rootAddress)
 
-def generateReadme(chain, username):
+def generateReadme(chain, username, reponame):
   readme = "# Church\n\n"
   for img in chain:
-    readme += getReadmeLine(img, username)
+    readme += getReadmeLine(img, username, reponame)
   f = open("README.md", "w")
   print(readme, file=f)
 
-def getReadmeLine(img, username):
+def getReadmeLine(img, username, reponame):
   return "[<img src=\"site/images/"+img+"\">](http://"+username+".github.io/" + reponame + "/site/"+changeExtensionToHtml(img)+")\n\n"
 
 def generatePages(chain, readmeLink, rootAddress):
